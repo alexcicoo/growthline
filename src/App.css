@@ -1,0 +1,129 @@
+/* 1. Perusasetukset */
+:root {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #000;
+  color-scheme: dark;
+  font-family: 'Inter', 'Helvetica', sans-serif;;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', 'Helvetica', sans-serif;;
+  overflow: hidden; /* Estää skrollauksen, jotta tausta pysyy paikallaan */
+  width: 100vw;
+  height: 100vh;
+}
+
+/* 2. Pääkontti, joka täyttää koko ruudun ja keskittää sisällön */
+.app-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  background-color: transparent; /* LineWaves näkyy läpi */
+}
+
+/* 3. UI-kerros, joka keskittää napin taustan päälle */
+.ui-layer {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+/* 4. Glass-card, joka toimii nyt kokonaan nappina */
+.glass-card.clickable-card {
+  /* Koko ja muoto */
+  width: 400px;
+  height: 160px;
+  padding: 0;
+  
+  /* Lasiefekti */
+  background: black;
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(15px);
+  
+  /* Reunat ja varjot */
+  border: 1px solid rgba(7, 246, 23, 0.3); /* Neonvihreä vivahde */
+  border-radius: 30px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+  
+  /* Sisällön keskitys (SplitText) */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  /* Napin oletusasetusten nollaus */
+  cursor: pointer;
+  outline: none;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+  margin-top: 120px; /* Vähän tilaa headerin alle */
+}
+
+/* 5. SplitText-tekstin tyylit napin sisällä */
+.button-text {
+  font-size: 2.8rem;
+  font-weight: 900;
+  color: #ffffff; /* Neonvihreä */
+  text-shadow: 0 0 15px rgba(7, 246, 23, 0.4);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+/* 6. Interaktiot (Hover ja Klikkaus) */
+.glass-card.clickable-card:hover {
+  background: rgba(7, 246, 23, 0.08); /* Kevyt vihreä hohde */
+  border-color: rgba(7, 246, 23, 0.8);
+  transform: scale(1.05); /* Suurenee hieman */
+  box-shadow: 0 0 40px rgba(7, 246, 23, 0.2);
+}
+
+.glass-card.clickable-card:active {
+  transform: scale(0.96); /* Painuu sisään klikatessa */
+}
+
+/* Estetään SplitTextin kirjainten rivittyminen vahingossa */
+.split-char {
+  display: inline-block !important;
+  will-change: transform, opacity;
+}
+
+@media (max-width: 500px) {
+  .glass-card.clickable-card {
+    /* Tehdään napista selkeästi kapeampi puhelimella */
+    width: 75%;          /* Laskettu 90% -> 75% */
+    max-width: 280px;    /* Napin maksimileveys puhelimella */
+    height: 100px;       /* Matalampi profiili */
+    margin-top: 60px;    /* Vähemmän tyhjää tilaa ylhäällä */
+    border-radius: 8px;  /* Terävämmät kulmat sopivat paremmin kapeaan nappiin */
+  }
+
+  .button-text {
+    /* Pienennetään tekstiä reilusti, jotta "APPLY NOW" pysyy yhdellä rivillä */
+    font-size: 1.4rem !important; 
+    letter-spacing: 1px;
+  }
+}
+
+/* Erittäin kapeat puhelimet */
+@media (max-width: 350px) {
+  .glass-card.clickable-card {
+    width: 85%;
+    max-width: 240px;
+  }
+  .button-text {
+    font-size: 1.2rem !important;
+  }
+}
+
+
+

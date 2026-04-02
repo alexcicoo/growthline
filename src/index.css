@@ -1,0 +1,53 @@
+/* Nollataan oletusasetukset, jotta tausta ja asettelu toimivat oikein */
+:root {
+  /* Fontit */
+  --sans: system-ui, -apple-system, sans-serif;
+  
+  font-family: var(--sans);
+  line-height: 1.5;
+  font-weight: 400;
+
+  /* Väriteema pakotetaan tummaksi neon-teemaa varten */
+  color-scheme: dark;
+  background-color: #000;
+  color: rgba(255, 255, 255, 0.87);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  /* Estetään turha skrollaus, jotta LineWaves pysyy paikallaan */
+  overflow: hidden; 
+}
+
+#root {
+  /* Poistetaan Viten oletusleveydet ja reunat */
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  display: block;
+}
+
+/* Yleiset linkkien nollaukset (jos lisäät niitä myöhemmin) */
+a {
+  font-weight: 500;
+  color: #07f617;
+  text-decoration: inherit;
+}
+
+a:hover {
+  color: #06d614;
+}
+
+/* Poistetaan h1 oletusmarginaalit, jotka voivat siirtää glass-cardia */
+h1 {
+  margin: 0;
+}
