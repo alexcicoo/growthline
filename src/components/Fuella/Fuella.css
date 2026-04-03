@@ -8,19 +8,26 @@
   max-width: 800px;
   margin: 0 auto;
   color: #ffffff;
-  /* Estetään layoutia venymästä liikaa */
   height: 100%; 
   justify-content: center;
 }
 
-/* OTSikko-OSIO - Pienennetty marginaaleja */
 .fuella-header-section {
   text-align: center;
   margin-bottom: 20px;
 }
 
+.fuella-title-link {
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+}
+
+.fuella-title-link:hover {
+  opacity: 0.8;
+}
+
 .fuella-main-title {
-  font-size: 2.5rem; /* Pienennetty 3.5 -> 2.5 */
+  font-size: 2.5rem;
   font-weight: 900;
   letter-spacing: 8px;
   color: #07f617;
@@ -28,6 +35,7 @@
   text-transform: uppercase;
 }
 
+/* Yläotsikon viiva */
 .fuella-accent-line {
   width: 60px;
   height: 3px;
@@ -36,63 +44,73 @@
   border-radius: 2px;
 }
 
-/* KUVA-OSIO - TÄRKEIN MUUTOS */
 .fuella-image-wrapper {
   width: 100%;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
   display: flex;
-  justify-content: center;
+  flex-direction: column; 
+  align-items: center;
 }
 
 .fuella-hero-image {
   width: auto;
   max-width: 100%;
-  /* Rajoitetaan korkeus max 30% tai 40% näytön korkeudesta */
   max-height: 35vh; 
-  object-fit: contain; /* Pitää kuvasuhteen oikeana */
+  object-fit: contain;
   border-radius: 15px;
   border: 1px solid rgba(74, 148, 56, 0.4);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
-/* TEKSTI-OSIO - Tiivistetty tekstiä */
+.fuella-founder-badge {
+  margin-top: 15px;
+  text-align: center;
+}
+
+.fuella-founder-text {
+  font-size: 0.8rem;
+  letter-spacing: 3px;
+  color: rgba(255, 255, 255, 0.6); 
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
 .fuella-description-section {
   text-align: center;
   padding: 0 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .fuella-lead-text {
   font-size: 1.2rem;
   font-weight: 700;
   color: #ffffff;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
   letter-spacing: 1px;
 }
 
-.fuella-body-text {
-  font-size: 1rem;
-  line-height: 1.6;
-  color: rgba(255, 255, 255, 0.8);
-  max-width: 550px;
-  margin: 0 auto;
+.fuella-cta-link {
+  font-size: 0.9rem;
+  color: #07f617;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border-bottom: 1px solid transparent;
 }
 
-/* Mobiilioptimointi */
+.fuella-cta-link:hover {
+  border-bottom: 1px solid #07f617;
+  letter-spacing: 0.5px;
+}
+
 @media (max-width: 768px) {
   .fuella-main-title {
     font-size: 1.8rem;
     letter-spacing: 4px;
   }
-  
   .fuella-hero-image {
-    max-height: 25vh; /* Vielä pienempi mobiilissa, jotta teksti mahtuu */
-  }
-
-  .fuella-lead-text {
-    font-size: 1.1rem;
-  }
-  
-  .fuella-body-text {
-    font-size: 0.9rem;
+    max-height: 25vh;
   }
 }
