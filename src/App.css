@@ -1,129 +1,195 @@
-/* 1. Perusasetukset */
+/* 1. PERUSASETUKSET */
 :root {
-  margin: 0;
-  padding: 0;
   box-sizing: border-box;
-  background-color: #000;
   color-scheme: dark;
-  font-family: 'Inter', 'Helvetica', sans-serif;;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
 }
 
 body {
   margin: 0;
-  font-family: 'Inter', 'Helvetica', sans-serif;;
-  overflow: hidden; /* Estää skrollauksen, jotta tausta pysyy paikallaan */
+  padding: 0;
+  font-family: 'Inter', 'Helvetica', sans-serif;
+  overflow: hidden; 
   width: 100vw;
   height: 100vh;
+  background-color: #000;
 }
 
-/* 2. Pääkontti, joka täyttää koko ruudun ja keskittää sisällön */
+/* 2. PÄÄKONTTI */
 .app-container {
   width: 100vw;
   height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   position: relative;
-  background-color: transparent; /* LineWaves näkyy läpi */
+  overflow: hidden;
+  background: transparent !important;
 }
 
-/* 3. UI-kerros, joka keskittää napin taustan päälle */
+/* 3. UI-KERROS (TÄMÄ SKROLLAA) */
 .ui-layer {
-  position: relative;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   z-index: 10;
+  padding-top: 240px;
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  
+  overflow-y: auto;
+  overflow-x: hidden;
+  background: transparent !important;
+  
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+.scroll-content-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+  background: transparent;
+  transition: opacity 0.4s ease, visibility 0.4s; /* Sulava häivytys */
+}
+
+/* 4. NAPPIEN RYHMITTELY */
+.button-group {
+  display: flex;
+  flex-direction: row; 
+  gap: 30px;           
+  width: 90%;
+  max-width: 1200px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 180px;
+  margin-bottom: 60px;
+  flex-shrink: 0; 
+}
+
+/* 5. KESKIKUVA */
+.middle-image-container {
+  width: 100%;
+  max-width: 1200px;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
-  height: 100%;
+  margin: 40px 0;
+  flex-shrink: 0;
 }
 
-/* 4. Glass-card, joka toimii nyt kokonaan nappina */
+.middle-image {
+  max-width: 90%;
+  height: auto;
+  border-radius: 20px;
+  box-shadow: 0 0 30px rgba(74, 148, 56, 0.2);
+  transition: transform 0.4s ease;
+}
+
+.middle-image:hover {
+  transform: scale(1.01);
+}
+
+/* 6. GLASS-CARD TYYLIT */
 .glass-card.clickable-card {
-  /* Koko ja muoto */
-  width: 400px;
+  flex: 1;             
+  max-width: 350px;
   height: 160px;
-  padding: 0;
-  
-  /* Lasiefekti */
-  background: black;
-  backdrop-filter: blur(25px);
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
-  
-  /* Reunat ja varjot */
-  border: 1px solid rgba(7, 246, 23, 0.3); /* Neonvihreä vivahde */
+  border: 1px solid rgba(7, 246, 23, 0.3);
   border-radius: 30px;
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
-  
-  /* Sisällön keskitys (SplitText) */
   display: flex;
   justify-content: center;
   align-items: center;
-  
-  /* Napin oletusasetusten nollaus */
   cursor: pointer;
-  outline: none;
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-
-  margin-top: 120px; /* Vähän tilaa headerin alle */
 }
 
-/* 5. SplitText-tekstin tyylit napin sisällä */
+.glass-card.clickable-card:hover {
+  background: rgba(7, 246, 23, 0.1);
+  border-color: rgba(7, 246, 23, 0.8);
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 0 30px rgba(7, 246, 23, 0.3);
+}
+
+/* 7. TEKSTIN TYYLIT */
 .button-text {
-  font-size: 2.8rem;
+  font-size: 2rem;   
   font-weight: 900;
-  color: #ffffff; /* Neonvihreä */
-  text-shadow: 0 0 15px rgba(7, 246, 23, 0.4);
+  color: #ffffff;
+  text-shadow: 0 0 10px rgba(7, 246, 23, 0.5);
   letter-spacing: 2px;
   text-transform: uppercase;
-  margin: 0;
 }
 
-/* 6. Interaktiot (Hover ja Klikkaus) */
-.glass-card.clickable-card:hover {
-  background: rgba(7, 246, 23, 0.08); /* Kevyt vihreä hohde */
-  border-color: rgba(7, 246, 23, 0.8);
-  transform: scale(1.05); /* Suurenee hieman */
-  box-shadow: 0 0 40px rgba(7, 246, 23, 0.2);
+/* 8. ORGANISAATIOKAAVIO JA FOOTER */
+.org-chart-container {
+  width: 100%;
+  flex-shrink: 0; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: transparent;
+  margin-top: 20px;
 }
 
-.glass-card.clickable-card:active {
-  transform: scale(0.96); /* Painuu sisään klikatessa */
+.main-footer {
+  width: 100%;
+  flex-shrink: 0; 
+  margin-top: 80px;
+  padding-bottom: 100px;
+  background: transparent;
 }
 
-/* Estetään SplitTextin kirjainten rivittyminen vahingossa */
-.split-char {
-  display: inline-block !important;
-  will-change: transform, opacity;
-}
-
-@media (max-width: 500px) {
-  .glass-card.clickable-card {
-    /* Tehdään napista selkeästi kapeampi puhelimella */
-    width: 75%;          /* Laskettu 90% -> 75% */
-    max-width: 280px;    /* Napin maksimileveys puhelimella */
-    height: 100px;       /* Matalampi profiili */
-    margin-top: 60px;    /* Vähemmän tyhjää tilaa ylhäällä */
-    border-radius: 8px;  /* Terävämmät kulmat sopivat paremmin kapeaan nappiin */
+/* 9. MOBIILIRESPONSIIVISUUS */
+@media (max-width: 768px) {
+  .button-group {
+    flex-direction: column; 
+    gap: 20px;
+    margin-top: 120px;
   }
-
-  .button-text {
-    /* Pienennetään tekstiä reilusti, jotta "APPLY NOW" pysyy yhdellä rivillä */
-    font-size: 1.4rem !important; 
-    letter-spacing: 1px;
+  .middle-image {
+    max-width: 95%;
   }
-}
-
-/* Erittäin kapeat puhelimet */
-@media (max-width: 350px) {
   .glass-card.clickable-card {
-    width: 85%;
-    max-width: 240px;
+    width: 320px;
+    height: 150px;
+    border-radius: 20px;
   }
   .button-text {
-    font-size: 1.2rem !important;
+    font-size: 1.4rem;
   }
 }
 
+@media (min-width: 769px) and (max-width: 1024px) {
+  .ui-layer {
+    padding-top: 500px;
+  }
+}
 
+/* 10. SISÄLLÖN PIILOTTAMINEN (LISÄTTY/KORJATTU) */
 
+/* Tämä luokka lisätään scroll-content-wrapperille App.jsx:ssä kun activeContent on tosi */
+.scroll-content-wrapper.hidden-main-content {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none;
+  /* Emme aseta display: none, jotta skrollauspaikka säilyy */
+}
+
+/* Lomakkeen aukiolon hallinta */
+.form-is-open .ui-layer {
+  /* Muutettu transparentiksi, jotta vain LineWaves näkyy taustalla */
+  background: transparent !important;
+  overflow-y: auto;
+}

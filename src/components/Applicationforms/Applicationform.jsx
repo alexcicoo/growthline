@@ -1,31 +1,26 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './Applicationform.css';
 
-const Applicationform = ({ src, onClose }) => {
-  const [isLoading, setIsLoading] = useState(true);
-
+const Applicationform = ({ title, text, customComponent, onClose }) => {
   return (
     <div className="form-wrapper">
-      {/* Rasti on nyt wrapperin sisällä, jolloin se asemoituu iframen päälle */}
       <button className="close-button" onClick={onClose} aria-label="Close">
         &times;
       </button>
 
-      {isLoading && (
-        <div className="form-loader">
-          <p>Loading...</p>
-        </div>
-      )}
-      
-      <iframe
-        src={src}
-        className={`application-form ${isLoading ? 'hidden' : 'visible'}`}
-        title="Application Form"
-        onLoad={() => setIsLoading(false)}
-        frameBorder="0"
-      >
-        Loading…
-      </iframe>
+      <div className="info-scroll-area">
+        {/* Jos on otsikko ja teksti (Manifesto/Contact) */}
+        {title && <h2 className="info-title">{title}</h2>}
+        {title && <div className="info-divider"></div>}
+        {text && <p className="info-text">{text}</p>}
+
+        {/* Jos on erillinen komponentti (Team) */}
+        {customComponent && (
+          <div className="custom-content-wrapper">
+            {customComponent}
+          </div>
+        )}
+      </div>
     </div>
   );
 };

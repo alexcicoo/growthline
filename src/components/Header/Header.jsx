@@ -5,9 +5,8 @@ export default function Header() {
     <header className="main-header">
       <div className="logo-group">
         <h1 className="logo">GROWTHLINE</h1>
-        <p className="header-subtitle">Built by students. For founders.</p>
-        {/* Tämä tyhjä div toimii viivana */}
-        <div className="accent-line"></div>
+        <p className="header-subtitle">House Of Brands</p>
+        <div className="accent-line" aria-hidden="true"></div>
       </div>
     </header>
   );

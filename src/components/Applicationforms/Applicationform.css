@@ -1,67 +1,149 @@
+/* ==========================================================================
+   APPLICATIONFORM.CSS - DYNAAMINEN MODAL-IKKUNA
+   ========================================================================== */
+
 .form-wrapper {
-  position: absolute;
-  top: 220px;
-  bottom: 100px;
+  /* Asemoinnin muutos: täydellinen keskitys ruudulle */
+  position: fixed;
+  top: 50%;
   left: 50%;
-  transform: translateX(-50%);
-  width: 95%;
+  transform: translate(-50%, -50%);
+  
+  
+  /* Leveys ja dynaaminen korkeus */
+  width: 90%;
   max-width: 900px;
-  z-index: 50;
+  height: auto;             /* Korkeus säätyy sisällön mukaan */
+  max-height: 85vh;         /* Estää laatikkoa menemästä ruudun yli */
+  
+  z-index: 1000;            /* Varmistetaan että on kaiken päällä */
   display: flex;
   flex-direction: column;
-  overflow: hidden; /* Pitää iframen ja rastin siistinä pakettina */
-  border-radius: 20px; /* Pyöristys koko paketille */
-  border: 1px solid rgba(7, 246, 23, 0.3);
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+  
+  /* Ulkoasu: Glassmorphism */
+  background: rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  border: 1px solid rgba(7, 246, 23, 0.4);
+  border-radius: 30px;
+  box-shadow: 0 0 60px rgba(0, 0, 0, 0.9), 0 0 20px rgba(7, 246, 23, 0.1);
+  
+  /* Sisällön hallinta */
+  overflow: hidden;
+  animation: modalFadeIn 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
+@keyframes modalFadeIn {
+  from { 
+    opacity: 0; 
+    transform: translate(-50%, -45%) scale(0.95); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translate(-50%, -50%) scale(1); 
+  }
+}
+
+/* SKROLLATTAVA SISÄLTÖALUE */
+.info-scroll-area {
+  padding: 60px 40px;
+  overflow-y: auto;         /* Sallii skrollauksen vain jos sisältö ylittää max-heightin */
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Tyylikäs kapea scrollbar */
+.info-scroll-area::-webkit-scrollbar {
+  width: 6px;
+}
+.info-scroll-area::-webkit-scrollbar-thumb {
+  background: rgba(7, 246, 23, 0.3);
+  border-radius: 10px;
+}
+
+/* SULKEMISPAINIKE */
 .close-button {
   position: absolute;
-  top: 15px;      /* Etäisyys yläreunasta */
-  right: 15px;    /* Etäisyys oikeasta reunasta */
-  background: rgba(0, 0, 0, 0.6); /* Tumma tausta, jotta erottuu lomakkeesta */
+  top: 20px;
+  right: 20px;
+  background: rgba(0, 0, 0, 0.6);
   border: 1px solid rgba(7, 246, 23, 0.5);
   color: #07f617;
-  font-size: 1.8rem;
-  width: 35px;
-  height: 35px;
+  font-size: 2rem;
+  width: 45px;
+  height: 45px;
   border-radius: 50%;
   cursor: pointer;
-  z-index: 100;    /* Varmistetaan, että on iframen päällä */
+  z-index: 1100;
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: all 0.2s ease;
-  backdrop-filter: blur(5px);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .close-button:hover {
   background: #07f617;
-  color: black;
-  transform: scale(1.1);
+  color: #000;
+  transform: rotate(90deg) scale(1.1);
+  box-shadow: 0 0 15px rgba(7, 246, 23, 0.6);
 }
 
-.application-form {
+/* OTSikko JA VIIVA (Käytetään Manifesto, Contact ja Team) */
+.info-title {
+  color: #07f617;
+  font-size: 3rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  text-align: center;
+  margin-bottom: 10px;
+  text-shadow: 0 0 20px rgba(7, 246, 23, 0.4);
+}
+
+.info-divider {
+  width: 120px;
+  height: 4px;
+  background: #07f617;
+  margin: 10px auto 30px;
+  border-radius: 2px;
+  box-shadow: 0 0 15px rgba(7, 246, 23, 0.5);
+}
+
+.info-text {
+  color: #e0e0e0;
+  font-size: 1.3rem;
+  line-height: 1.8;
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto;
+  white-space: pre-line;
+}
+
+/* TIIMI-KOMPONENTIN SÄILIÖ */
+.custom-content-wrapper {
   width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.8);
-  border: none; /* Reuna tulee nyt wrapperilta */
-  transition: opacity 0.6s ease-in-out;
 }
 
-/* Mobiilioptimointi */
-@media (max-width: 600px) {
+/* RESPONSIIVISUUS */
+@media (max-width: 768px) {
   .form-wrapper {
-    top: 180px;
-    bottom: 100px;
-    width: 92%;
+    width: 85%;
+    max-height: 90vh;
+    border-radius: 25px;
   }
   
-  .close-button {
-    top: 10px;
-    right: 10px;
-    width: 30px;
-    height: 30px;
-    font-size: 1.4rem;
+  .info-scroll-area {
+    padding: 50px 20px;
+  }
+
+  .info-title {
+    font-size: 2.2rem;
+  }
+
+  .info-text {
+    font-size: 1.1rem;
   }
 }
+

@@ -1,10 +1,17 @@
+/* footer.css */
+
 .main-footer {
-  position: fixed;
-  bottom: 40px; /* Etäisyys pohjasta */
-  left: 0;
+  position: relative; 
   width: 100%;
   display: flex;
   justify-content: center;
+  
+  /* TÄMÄ ON TÄRKEÄ: Estää footeria katoamasta/puristumasta */
+  flex-shrink: 0; 
+  
+  margin-top: 150px; /* Reilusti tilaa OrgChartin jälkeen */
+  padding-bottom: 80px; /* Tilaa aivan sivun pohjalle */
+  
   z-index: 20;
 }
 
@@ -26,6 +33,7 @@
   width: 45px;
   height: 45px;
   display: inline-block;
+  transition: transform 0.3s ease; /* Pehmeä skaalaus */
 }
 
 .icon-wrap .icon {
@@ -37,15 +45,17 @@
   transition: opacity 0.5s ease-in-out;
 }
 
+/* Mustavalkoinen versio oletuksena */
 .icon-wrap .icon-bw {
   opacity: 1;
 }
 
+/* Värillinen versio piilossa */
 .icon-wrap .icon-color {
   opacity: 0;
 }
 
-/* Hover-efekti: harmaa vaihtuu värilliseen */
+/* Hover-efekti: harmaa vaihtuu värilliseen ja ikoni kasvaa hieman */
 .icon-swap:hover .icon-bw {
   opacity: 0;
 }
@@ -54,8 +64,23 @@
   opacity: 1;
 }
 
-/* Pieni skaalaus-efekti kaupan päälle */
 .icon-swap:hover .icon-wrap {
-  transform: scale(1.1);
-  transition: transform 0.3s ease;
+  transform: scale(1.15);
+}
+
+/* Mobiilisäädöt */
+@media (max-width: 768px) {
+  .main-footer {
+    margin-top: 60px;
+    padding-bottom: 40px;
+  }
+  
+  .icon-wrap {
+    width: 35px;
+    height: 35px;
+  }
+  
+  .footer-socials {
+    gap: 20px;
+  }
 }
