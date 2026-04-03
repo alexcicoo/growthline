@@ -130,7 +130,7 @@
 @media (max-width: 768px) {
   .form-wrapper {
     width: 85%;
-    max-height: 90vh;
+    max-height: 80vh;
     border-radius: 25px;
   }
   
