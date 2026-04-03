@@ -73,7 +73,7 @@
   .org-chart-container {
     /* Kasvatetaan paddingia niin paljon, että Brand Portfolio siirtyy "alas" */
     padding-top: 25vh; /* 100vh tarkoittaa koko näytön korkeutta */
-    margin: 40px auto;
+    margin: 20px auto;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -126,7 +126,7 @@
   }
 }
 
-@media (max-width: 1024px) {
+@media (min-width: 769px) and (max-width: 1024px) {
   .org-chart-container {
     /* Tämä pakottaa käyttäjän skrollaamaan iPadilla nähdäkseen kaavion */
     padding-top: 34vh; 
