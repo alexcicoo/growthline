@@ -1,51 +1,58 @@
+
 .textbox-container {
-  width: 90%;
-  max-width: 1200px;
-  margin: 25vh auto; 
+  width: 95%;
+  max-width: 1100px;
+  
+  margin: 60vh auto 120px auto; 
+  
   display: flex;
   justify-content: flex-start;
   padding: 60px 50px; 
-  background: rgba(0, 0, 0, 0.6); 
-  backdrop-filter: blur(20px);    
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(7, 246, 23, 0.25); 
+  
+  background: rgba(0, 0, 0, 0.75); 
+  backdrop-filter: blur(12px);    
+  -webkit-backdrop-filter: blur(12px);
+  will-change: transform, opacity;
+  transform: translateZ(0);
+  
+  border: 1px solid rgba(7, 246, 23, 0.2);
   border-radius: 40px; 
-  box-shadow: 0 40px 100px rgba(0, 0, 0, 0.8), inset 0 0 20px rgba(7, 246, 23, 0.05); 
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+  
   position: relative;
-  z-index: 5; 
+  z-index: 5;
 }
 
 .textbox-content {
   display: flex;
   flex-direction: column;
-  gap: 25px;
+  gap: 20px;
   text-align: left;
 }
 
 .textbox-line {
-  width: 80px;
-  height: 5px;
+  width: 60px;
+  height: 4px;
   background-color: #07f617;
-  box-shadow: 0 0 20px rgba(7, 246, 23, 0.6);
+  box-shadow: 0 0 15px rgba(7, 246, 23, 0.5);
   border-radius: 2px;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
 }
 
 .textbox-title {
-  font-size: clamp(2.5rem, 6vw, 4.2rem); 
-  font-weight: 900;
+  font-size: clamp(2.2rem, 6vw, 3.8rem); 
+  font-weight: 800;
   color: #ffffff;
   margin: 0;
-  line-height: 1.05;
-  letter-spacing: -2px;
-  text-transform: none; 
+  line-height: 1.1;
+  letter-spacing: -1.5px;
 }
 
 .textbox-body {
-  font-size: clamp(1.4rem, 3.5vw, 2.3rem);
+  font-size: clamp(1.4rem, 3.2vw, 2.1rem);
   font-weight: 700;
-  color: rgba(255, 255, 255, 0.95);
-  line-height: 1.25;
+  color: #ffffff;
+  line-height: 1.3;
 }
 
 .textbox-body p {
@@ -54,26 +61,19 @@
 
 .text-green {
   color: #07f617;
-  text-shadow: 0 0 25px rgba(7, 246, 23, 0.5);
+  text-shadow: 0 0 15px rgba(7, 246, 23, 0.3);
 }
 
 @media (max-width: 768px) {
   .textbox-container {
-    margin: 30vh auto; 
+    margin: 40vh auto 80px auto; 
     padding: 40px 25px;
     width: 92%;
     border-radius: 30px;
+    backdrop-filter: blur(8px);
   }
 
-  .textbox-line {
-    width: 60px;
-  }
-}
-
-@media (min-width: 769px) and (max-width: 1024px) {
-  .textbox-container {
-    margin: 30vh auto 80px auto; 
-    padding: 50px 30px;
-    width: 95%;
+  .textbox-title {
+    letter-spacing: -0.5px;
   }
 }
