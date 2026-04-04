@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://growthline.tech/sitemap.xml
+Sitemap: https://growthline.llc/sitemap.xml
