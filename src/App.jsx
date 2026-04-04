@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import LineWaves from './components/Linewaves/Linewaves';
+import TextBox from './components/Textbox/Textbox';
 import SplitText from './components/SplitText';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
@@ -75,6 +76,9 @@ function App() {
               <SplitText text="TEAM" className="button-text" delay={60} duration={1.2} textAlign="center" />
             </button>
           </nav>
+
+          {/* TextBox on tässä nappien ja org-chartin välissä */}
+          <TextBox />
 
           <OrgChart onDepartmentClick={handleDepartmentClick} />
           

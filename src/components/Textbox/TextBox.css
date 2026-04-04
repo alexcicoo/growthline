@@ -1,0 +1,79 @@
+.textbox-container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 25vh auto; 
+  display: flex;
+  justify-content: flex-start;
+  padding: 60px 50px; 
+  background: rgba(0, 0, 0, 0.6); 
+  backdrop-filter: blur(20px);    
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(7, 246, 23, 0.25); 
+  border-radius: 40px; 
+  box-shadow: 0 40px 100px rgba(0, 0, 0, 0.8), inset 0 0 20px rgba(7, 246, 23, 0.05); 
+  position: relative;
+  z-index: 5; 
+}
+
+.textbox-content {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  text-align: left;
+}
+
+.textbox-line {
+  width: 80px;
+  height: 5px;
+  background-color: #07f617;
+  box-shadow: 0 0 20px rgba(7, 246, 23, 0.6);
+  border-radius: 2px;
+  margin-bottom: 5px;
+}
+
+.textbox-title {
+  font-size: clamp(2.5rem, 6vw, 4.2rem); 
+  font-weight: 900;
+  color: #ffffff;
+  margin: 0;
+  line-height: 1.05;
+  letter-spacing: -2px;
+  text-transform: none; 
+}
+
+.textbox-body {
+  font-size: clamp(1.4rem, 3.5vw, 2.3rem);
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.95);
+  line-height: 1.25;
+}
+
+.textbox-body p {
+  margin: 0;
+}
+
+.text-green {
+  color: #07f617;
+  text-shadow: 0 0 25px rgba(7, 246, 23, 0.5);
+}
+
+@media (max-width: 768px) {
+  .textbox-container {
+    margin: 30vh auto; 
+    padding: 40px 25px;
+    width: 92%;
+    border-radius: 30px;
+  }
+
+  .textbox-line {
+    width: 60px;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .textbox-container {
+    margin: 30vh auto 80px auto; 
+    padding: 50px 30px;
+    width: 95%;
+  }
+}

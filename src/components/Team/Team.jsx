@@ -20,7 +20,11 @@ const Team = () => {
             <div className="team-box" key={index}>
               <span className="role-label">{member.role}</span>
               <div className="team-image">
-                <img src={member.img} alt={`${member.name} - ${member.role} at Growthline`} />
+                <img 
+                  src={member.img} 
+                  alt={`${member.name} - ${member.role} at Growthline`}
+                  style={member.name === "Alex Hiltunen" ? { objectPosition: 'center 10%' } : {}}
+                />
               </div>
               <h3>{member.name}</h3>
             </div>
