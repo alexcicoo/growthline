@@ -20,7 +20,7 @@ function App() {
     },
     CONTACT: {
       title: "CONTACT",
-      text: "Ready to create something big? Contact us:\n\nEmail: growthlineteam@gmail.com"
+      text: "Ready to create something big? Contact us:\n\nEmail: contact@growthline.llc"
     }
   };
 
