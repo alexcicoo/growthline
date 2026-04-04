@@ -6,7 +6,7 @@ export default function Footer() {
       <div className="footer-socials">
         <a 
           className="social-link icon-swap" 
-          href="https://www.instagram.com/growthline.fi" 
+          href="https://www.instagram.com/growthline.llc" 
           target="_blank" 
           rel="noopener noreferrer"
           aria-label="Follow Growthline on Instagram"
