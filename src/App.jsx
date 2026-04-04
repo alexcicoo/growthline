@@ -15,7 +15,7 @@ function App() {
   const contentData = {
     MANIFESTO: {
       title: "MANIFESTO",
-      text: "Growthline is a young but experienced team built from backgrounds in startups and entrepreneurship. We've seen what works and what doesn't and we bring that into everything we do. We combine top academic education with real-world execution because knowing the theory means nothing if you can't make it happen. We work with young talents that are serious about building something real because the best companies aren't built by the most experienced people in the room. They're built by the most driven ones. Growthline exists because we got tired of watching great ideas stay ideas. We built this to change that."
+      text: "Growthline is a young but experienced team built from backgrounds in startups and entrepreneurship. We've seen what works and what doesn't and we bring that into everything we do.\n\n We combine top academic education with real-world execution because knowing the theory means nothing if you can't make it happen.\n\n We work with young talents that are serious about building something real because the best companies aren't built by the most experienced people in the room. They're built by the most driven ones.\n\n Growthline exists because we got tired of watching great ideas stay ideas. We built this to change that."
     },
     CONTACT: {
       title: "CONTACT",
@@ -46,10 +46,8 @@ function App() {
       />
 
       <main className="ui-layer">
-        {/* Header piilotetaan heti kun sisältö on aktiivinen */}
         {!activeContent && <Header />}
 
-        {/* Pääsisältö, joka häivytetään CSS-luokalla 'hidden-main-content' */}
         <div className={`scroll-content-wrapper ${activeContent ? 'hidden-main-content' : ''}`}>
           
           <nav className="button-group">
@@ -83,7 +81,6 @@ function App() {
           <Footer />
         </div>
 
-        {/* MODAL / LOMAKE */}
         {activeContent && (
           <Applicationform 
             onClose={() => setActiveContent(null)} 

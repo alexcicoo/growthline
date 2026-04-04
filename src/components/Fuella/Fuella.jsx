@@ -14,11 +14,8 @@ const Fuella = () => {
 
       <div className="fuella-image-wrapper">
         <img 
-          src="./Viljami.webp" 
-          alt="Viljami - Founder of Fuella" 
-          className="fuella-hero-image" 
+          src="./Viljami.webp" alt="Viljami - Founder of Fuella" className="fuella-hero-image" 
         />
-        {/* Titteli ilman viivaa */}
         <div className="fuella-founder-badge">
           <span className="fuella-founder-text">FOUNDER & CEO</span>
         </div>
@@ -26,7 +23,7 @@ const Fuella = () => {
 
       <div className="fuella-description-section">
         <p className="fuella-lead-text">
-          portable blender & mixes for ambitious people
+          Portable blender & mixes for ambitious people
         </p>
         <a href="https://fuella.eu" className="fuella-cta-link">
           Learn more at fuella.eu →

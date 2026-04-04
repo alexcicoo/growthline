@@ -4,8 +4,8 @@ import './Team.css';
 const Team = () => {
   const members = [
     { name: "Viljami Tuovinen", role: "CEO", img: "./Viljami.webp" },
-    { name: "Alex Hiltunen", role: "COO", img: "./Alex.webp" },
-    { name: "Kristian Kuismin", role: "Growth Lead", img: "./Kristian.webp" },
+    { name: "Alex Hiltunen", role: "Strategy", img: "./Alex.webp" },
+    { name: "Kristian Kuismin", role: "GTM", img: "./Kristian.webp" },
     { name: "Matias Kortesniemi", role: "Art Director", img: "./Matias.webp" }
   ];
 

@@ -1,23 +1,14 @@
-
-
 .line-waves-container {
-  /* 1. Pakotetaan se koko ruudun kokoiseksi */
   position: fixed; 
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-
-  /* 2. Laitetaan se kaiken muun taakse */
   z-index: -1; 
-
-  /* 3. Varmistetaan, ettei se estä hiiren käyttöä napeissa */
   pointer-events: none; 
-  
-  background: black; /* Hyvä olla musta pohja alla */
+  background: black; 
 }
 
-/* TÄMÄ ON TÄRKEÄ: Varmista että koodin luoma canvas täyttää tilan */
 .line-waves-container canvas {
   width: 100% !important;
   height: 100% !important;

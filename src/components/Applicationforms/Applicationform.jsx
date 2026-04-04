@@ -9,12 +9,10 @@ const Applicationform = ({ title, text, customComponent, onClose }) => {
       </button>
 
       <div className="info-scroll-area">
-        {/* Jos on otsikko ja teksti (Manifesto/Contact) */}
         {title && <h2 className="info-title">{title}</h2>}
         {title && <div className="info-divider"></div>}
         {text && <p className="info-text">{text}</p>}
 
-        {/* Jos on erillinen komponentti (Team) */}
         {customComponent && (
           <div className="custom-content-wrapper">
             {customComponent}

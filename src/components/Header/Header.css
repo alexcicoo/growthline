@@ -3,7 +3,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 200px; /* Nostettu hieman, jotta teksti ja viiva mahtuvat hengittämään */
+  height: 200px; 
   display: flex;
   justify-content: center;
   align-items: center;
@@ -15,15 +15,13 @@
 }
 
 .logo-group {
-  display: inline-flex; /* Kutistuu sisällön (tekstin) kokoiseksi */
+  display: inline-flex; 
   flex-direction: column;
   align-items: center;
   gap: 12px;
-  /* Tämä varmistaa, että alaviiva voi olla hieman leveämpi kuin teksti */
   padding: 0 20px; 
 }
 
-/* Display 64px / Bold */
 .logo {
   font-size: 64px;
   font-weight: 700;
@@ -32,10 +30,10 @@
   letter-spacing: -0.02em;
   line-height: 1;
   margin: 0;
-  white-space: nowrap; /* Estää tekstin rivittymisen */
+  white-space: nowrap; 
 }
 
-/* Body 20px / Regular -> Green Accent (#4A9438) */
+
 .header-subtitle {
   font-size: 20px;
   font-weight: 400;
@@ -44,30 +42,28 @@
   letter-spacing: 0.01em;
 }
 
-/* Brändin vihreä viiva tekstien alla */
+
 .accent-line {
-  /* 100% täyttää .logo-groupin, joka on hieman leveämpi kuin teksti paddingin ansiosta */
   width: 100%; 
   height: 2px;
   background-color: #4A9438;
   margin-top: 1px;
   border-radius: 2px;
-  /* Lisää hienovarainen hehku, jos haluat sen erottuvan mustasta taustasta */
   box-shadow: 0 0 8px rgba(74, 148, 56, 0.3);
 }
 
 
 @media screen and (max-width: 768px) {
   .main-header {
-    height: 150px; /* Vähennetään korkeutta pienemmillä näytöillä */
+    height: 150px; 
   }
   
   .logo {
-    font-size: 36px; /* Pienennetään logon kokoa */
+    font-size: 36px; 
   }
   
   .header-subtitle {
-    font-size: 14px; /* Pienennetään alaotsikon kokoa */
+    font-size: 14px; 
   }
   
 }

@@ -1,4 +1,3 @@
-/* 1. PERUSASETUKSET & ROOT */
 :root {
   box-sizing: border-box;
   color-scheme: dark;
@@ -22,7 +21,7 @@ body {
   background: transparent !important;
 }
 
-/* 2. PÄÄKONTTI */
+/*Main container*/
 .app-container {
   width: 100vw;
   height: 100vh;
@@ -31,7 +30,6 @@ body {
   background: transparent !important;
 }
 
-/* 3. UI-KERROS */
 .ui-layer {
   position: absolute;
   top: 0;
@@ -50,7 +48,7 @@ body {
   -webkit-overflow-scrolling: touch;
 }
 
-/* 3.1 HEADERIN SIJOITTELU */
+/* Header */
 .main-header {
   width: 100%;
   padding-top: 60px;
@@ -61,7 +59,7 @@ body {
   z-index: 20; /* Nostettu z-index varmuuden vuoksi */
 }
 
-/* 3.2 SISÄLLÖN WRAPPER */
+/* content wrapper */
 .scroll-content-wrapper {
   width: 100%;
   flex-grow: 1; 
@@ -72,7 +70,7 @@ body {
   transition: opacity 0.4s ease, visibility 0.4s;
 }
 
-/* 4. NAPPIEN RYHMITTELY */
+/* 4. buttons */
 .button-group {
   display: flex;
   flex-direction: row; 
@@ -82,14 +80,11 @@ body {
   justify-content: center;
   align-items: center;
   flex-shrink: 0; 
-  
-  /* TÄMÄ ON RATKAISU: Reilu väli, jotta napit eivät ole Headerin takana */
-  /* Jos 30vh on liikaa, pienennä esim. 25vh. Jos liian vähän, nosta 35vh. */
   margin-top: 50vh; 
   margin-bottom: 10vh;
 }
 
-/* 5. GLASS-CARD TYYLIT */
+/* GLASS-CARD */
 .glass-card.clickable-card {
   flex: 1;             
   max-width: 350px;
@@ -114,7 +109,7 @@ body {
   box-shadow: 0 0 30px rgba(7, 246, 23, 0.3);
 }
 
-/* 6. TEKSTIN TYYLIT */
+/* Text style */
 .button-text {
   font-size: 2rem;   
   font-weight: 900;
@@ -124,7 +119,7 @@ body {
   text-transform: uppercase;
 }
 
-/* 7. ORGANISAATIOKAAVIO JA FOOTER */
+/* 7. Organisation chart */
 .org-chart-container {
   width: 100%;
   flex-shrink: 0; 
@@ -144,7 +139,7 @@ body {
   background: transparent;
 }
 
-/* 8. MOBIILIRESPONSIIVISUUS */
+/* 8. Mobile */
 @media (max-width: 768px) {
   .main-header {
     padding-top: 40px;
@@ -153,7 +148,6 @@ body {
   .button-group {
     flex-direction: column; 
     gap: 20px;
-    /* Mobiilissa logo on usein pienempi, joten 20vh voi riittää */
     margin-top: 35vh; 
   }
 
@@ -170,7 +164,7 @@ body {
   
 }
 
-/* 9. SISÄLLÖN PIILOTTAMINEN MODALIN AUKESSA */
+/* Hidden main content */
 .scroll-content-wrapper.hidden-main-content {
   opacity: 0 !important;
   visibility: hidden !important;
